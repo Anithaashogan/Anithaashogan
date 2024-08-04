@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="intro">
+            <img src="c:\Users\anith\OneDrive\Pictures\Saved Pictures\ANITHA.HTML - Copy.jpg" alt="Profile Picture" class="profile-pic">
+            <h1>Hello, I'm Anitha</h1>
+            <p>Full Stack Developer | Big Data Enthusiast | Cloud Computing Certified</p>
+            <button onclick="scrollToSection('about')">Learn More</button>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce at leo magna.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Project Title</h3>
+                <p>Short description of the project. This project involves building a full-stack application using the MERN stack.</p>
+            </div>
+            <div class="project-card">
+                <h3>Another Project</h3>
+                <p>This project focuses on data analysis using Big Data technologies and tools.</p>
+            </div>
+            <div class="project-card">
+                <h3>Third Project</h3>
+                <p>This project involves creating a responsive web design using modern CSS frameworks.</p>
+            </div>
+            <div class="project-card">
+                <h3>Fourth Project</h3>
+                <p>This project showcases my ability to integrate APIs and handle data effectively.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form id="contactForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Thanush. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script>
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            emailjs.sendForm('your_service_id', 'your_template_id', this)
+                .then(function() {
+                    alert('Message sent successfully!');
+                }, function(error) {
+                    alert('Failed to send message: ' + JSON.stringify(error));
+                });
+        });
+
+        (function(){
+            emailjs.init("your_user_id");
+        })();
+    </script>
+</body>
+</html>
